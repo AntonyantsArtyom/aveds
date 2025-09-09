@@ -8,7 +8,12 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  *{
+    box-sizing: border-box;
+  }
+
   body {
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
   }
 `;
