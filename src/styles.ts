@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  h1, h2, h3, p{
+    padding: 0;
+    margin: 0;
+  }
+
   *{
     box-sizing: border-box;
   }

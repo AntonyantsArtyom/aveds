@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Logo } from "../shared/logo";
 import { Link } from "react-router-dom";
+import { Logo } from "../shared/Logo";
+import { ButtonStyled } from "../shared/ButtonStyled";
 
 export const Header = () => {
   return (
@@ -9,7 +10,9 @@ export const Header = () => {
       <NavStyled>
         <LinkStyled to="/contacts">Контакты</LinkStyled>
       </NavStyled>
-      <LoginButtonStyled>Войти</LoginButtonStyled>
+      <LoginButtonStyled largeContent outline>
+        Войти
+      </LoginButtonStyled>
     </HeaderStyled>
   );
 };
@@ -44,19 +47,11 @@ const LinkStyled = styled(Link)`
   text-decoration: none;
 `;
 
-const LoginButtonStyled = styled.button`
+const LoginButtonStyled = styled(ButtonStyled)`
   width: 185px;
   height: 40px;
-
   gap: 10px;
   background: #ffffff;
-  border: 2px solid #ff685b;
-  border-radius: 7px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: #ff685b;
 
   @media (max-width: 720px) {
     width: 110px;
