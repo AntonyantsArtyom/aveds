@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { TitleStyled } from "../shared/TitleStyled";
-import { ButtonStyled } from "../shared/ButtonStyled";
+import { TitleStyled } from "@/shared/TitleStyled";
+import { ButtonStyled } from "@/shared/ButtonStyled";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useUserModalStore } from "../entities/User/UserModalStore";
+import { useUserModalStore } from "@/entities/User/UserModalStore";
 
 export const Profile = () => {
   const navigate = useNavigate();

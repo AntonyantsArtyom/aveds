@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import { Logo } from "../shared/Logo";
-import { ButtonStyled } from "../shared/ButtonStyled";
-import { useLoginModalStore } from "../features/LoginModal/LoginModalStore";
-import { useUserModalStore } from "../entities/User/UserModalStore";
+import { Logo } from "@/shared/Logo";
+import { ButtonStyled } from "@/shared/ButtonStyled";
+import { useLoginModalStore } from "@/features/LoginModal/LoginModalStore";
+import { useUserModalStore } from "@/entities/User/UserModalStore";
 
 export const Header = () => {
   const navigate = useNavigate();

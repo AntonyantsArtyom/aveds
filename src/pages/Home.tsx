@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { ButtonStyled } from "../shared/ButtonStyled";
-import { Service } from "../entities/Service/UI/Service";
-import { getServices } from "../entities/Service/hooks/getServices";
+import { ButtonStyled } from "@/shared/ButtonStyled";
+import { Service } from "@/entities/Service/UI/Service";
+import { getServices } from "@/entities/Service/hooks/getServices";
 import { useNavigate } from "react-router-dom";
-import { TitleStyled } from "../shared/TitleStyled";
-import { useLoginModalStore } from "../features/LoginModal/LoginModalStore";
+import { TitleStyled } from "@/shared/TitleStyled";
+import { useLoginModalStore } from "@/features/LoginModal/LoginModalStore";
 
 export const Home = () => {
   const [services] = getServices();

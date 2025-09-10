@@ -1,10 +1,10 @@
 import { Modal } from "antd";
-import { useLoginModalStore } from "./LoginModalStore";
 import styled from "styled-components";
-import { ButtonStyled } from "../../shared/ButtonStyled";
+import { ButtonStyled } from "@/shared/ButtonStyled";
 import { useState } from "react";
-import { useUserModalStore } from "../../entities/User/UserModalStore";
+import { useUserModalStore } from "@/entities/User/UserModalStore";
 import { useNavigate } from "react-router-dom";
+import { useLoginModalStore } from "@/features/LoginModal/LoginModalStore";
 
 export const LoginModal = () => {
   const { isOpen, setIsOpen } = useLoginModalStore();

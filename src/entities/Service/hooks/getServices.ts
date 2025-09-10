@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Heart } from "../../../shared/Heart";
-import { Tonometer } from "../../../shared/Tonometer";
-import { Document } from "../../../shared/Document";
+import { Heart } from "@/shared/Heart";
+import { Tonometer } from "@/shared/Tonometer";
+import { Document } from "@/shared/Document";
 
 export const getServices = () => {
   return useState([

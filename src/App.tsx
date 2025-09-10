@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { GlobalStyle } from "./styles";
-import { Header } from "./widgets/Header";
-import { Home } from "./pages/Home";
-import { Contacts } from "./pages/Contacts";
-import { Profile } from "./pages/Profile";
-import { LoginModal } from "./features/LoginModal/LoginModal";
+import { GlobalStyle } from "@/styles";
+import { Header } from "@/widgets/Header";
+import { Home } from "@/pages/Home";
+import { Contacts } from "@/pages/Contacts";
+import { Profile } from "@/pages/Profile";
+import { LoginModal } from "@/features/LoginModal/LoginModal";
 
 function App() {
   return (

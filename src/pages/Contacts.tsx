@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleStyled } from "../shared/TitleStyled";
+import { TitleStyled } from "@/shared/TitleStyled";
 
 export const Contacts = () => {
   return (
