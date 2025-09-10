@@ -2,10 +2,23 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { Logo } from "../shared/Logo";
 import { ButtonStyled } from "../shared/ButtonStyled";
+import { useLoginModalStore } from "../features/LoginModal/LoginModalStore";
+import { useUserModalStore } from "../entities/User/UserModalStore";
 
 export const Header = () => {
   const navigate = useNavigate();
   const logoButtonClickHandler = () => navigate("/");
+
+  const { setIsOpen: setIsOpenLoginModal } = useLoginModalStore();
+  const { login } = useUserModalStore();
+
+  const loginButtonClickHandler = () => {
+    if (login) {
+      navigate("/profile");
+      return;
+    }
+    setIsOpenLoginModal(true);
+  };
 
   return (
     <HeaderStyled>
@@ -15,8 +28,8 @@ export const Header = () => {
       <NavStyled>
         <LinkStyled to="/contacts">Контакты</LinkStyled>
       </NavStyled>
-      <LoginButtonStyled largeContent outline>
-        Войти
+      <LoginButtonStyled largeContent outline onClick={loginButtonClickHandler}>
+        {login ? "Профиль" : "Войти"}
       </LoginButtonStyled>
     </HeaderStyled>
   );

@@ -4,6 +4,7 @@ import { Header } from "./widgets/Header";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contacts";
 import { Profile } from "./pages/Profile";
+import { LoginModal } from "./features/LoginModal/LoginModal";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="profile" element={<Profile />} />
       </Routes>
+      <LoginModal />
     </BrowserRouter>
   );
 }

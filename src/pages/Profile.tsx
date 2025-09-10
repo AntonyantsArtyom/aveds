@@ -1,17 +1,24 @@
 import styled from "styled-components";
 import { TitleStyled } from "../shared/TitleStyled";
 import { ButtonStyled } from "../shared/ButtonStyled";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useUserModalStore } from "../entities/User/UserModalStore";
 
 export const Profile = () => {
   const navigate = useNavigate();
   const contactsButtonClickHandler = () => navigate("/contacts");
+  const { login, setLogin } = useUserModalStore();
+  const logoutButtonClickHandler = () => setLogin(null);
+
+  if (!login) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <ContainerStyled>
-      <TitleStyled>{"Привет, Сергей"}</TitleStyled>
+      <TitleStyled>{`Привет, ${login}`}</TitleStyled>
       <ButtonsContainerStyled>
-        <ProfilePageButtonStyled>Выйти из аккаунта</ProfilePageButtonStyled>
+        <ProfilePageButtonStyled onClick={logoutButtonClickHandler}>Выйти из аккаунта</ProfilePageButtonStyled>
         <ProfilePageButtonStyled outline onClick={contactsButtonClickHandler}>
           Перейти в контакты
         </ProfilePageButtonStyled>
