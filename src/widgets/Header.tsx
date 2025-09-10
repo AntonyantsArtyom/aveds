@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Logo } from "../shared/Logo";
 import { ButtonStyled } from "../shared/ButtonStyled";
 
 export const Header = () => {
+  const navigate = useNavigate();
+  const logoButtonClickHandler = () => navigate("/");
+
   return (
     <HeaderStyled>
-      <Logo />
+      <LogoContainer onClick={logoButtonClickHandler}>
+        <Logo />
+      </LogoContainer>
       <NavStyled>
         <LinkStyled to="/contacts">Контакты</LinkStyled>
       </NavStyled>
@@ -56,4 +61,8 @@ const LoginButtonStyled = styled(ButtonStyled)`
   @media (max-width: 720px) {
     width: 110px;
   }
+`;
+
+const LogoContainer = styled.div`
+  cursor: pointer;
 `;

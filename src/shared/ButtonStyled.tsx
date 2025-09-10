@@ -11,6 +11,7 @@ export const ButtonStyled = styled.button<{ outline?: boolean; largeContent?: bo
   text-align: center;
   letter-spacing: 0.2px;
   color: #ffffff;
+  cursor: pointer;
   border: none;
 
   ${({ outline }) =>

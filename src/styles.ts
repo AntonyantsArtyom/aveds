@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  #root{
+    min-height: 100dvh;
+    
+  }
+
   h1, h2, h3, p{
     padding: 0;
     margin: 0;

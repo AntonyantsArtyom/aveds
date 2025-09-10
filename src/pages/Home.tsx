@@ -2,16 +2,21 @@ import styled from "styled-components";
 import { ButtonStyled } from "../shared/ButtonStyled";
 import { Service } from "../entities/Service/UI/Service";
 import { getServices } from "../entities/Service/hooks/getServices";
+import { useNavigate } from "react-router-dom";
+import { TitleStyled } from "../shared/TitleStyled";
 
 export const Home = () => {
   const [services] = getServices();
+
+  const navigate = useNavigate();
+  const contactsButtonClickHandler = () => navigate("/contacts");
 
   return (
     <ContainerStyled>
       <TitleStyled>{"Место для получения\nмедицинской помощи"}</TitleStyled>
       <ButtonsContainerStyled>
         <HomePageButtonStyled>Войти</HomePageButtonStyled>
-        <HomePageButtonStyled outline largeContent>
+        <HomePageButtonStyled outline onClick={contactsButtonClickHandler}>
           Контакты
         </HomePageButtonStyled>
       </ButtonsContainerStyled>
@@ -45,23 +50,6 @@ const ContainerStyled = styled.div`
 
   @media (max-width: 1100px) {
     padding-bottom: 60px;
-  }
-`;
-
-const TitleStyled = styled.h1`
-  grid-area: title;
-  white-space: pre-wrap;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 58px;
-  line-height: 80px;
-  letter-spacing: 0.2px;
-  color: #252b42;
-
-  @media (max-width: 720px) {
-    font-size: 28px;
-    line-height: 39px;
-    color: #252b42;
   }
 `;
 
