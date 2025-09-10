@@ -7,16 +7,16 @@ import { useUserModalStore } from "@/entities/User/UserModalStore";
 export const Profile = () => {
   const navigate = useNavigate();
   const contactsButtonClickHandler = () => navigate("/contacts");
-  const { login, setLogin } = useUserModalStore();
-  const logoutButtonClickHandler = () => setLogin(null);
+  const { name, setName } = useUserModalStore();
+  const logoutButtonClickHandler = () => setName(null);
 
-  if (!login) {
+  if (!name) {
     return <Navigate to="/" replace />;
   }
 
   return (
     <ContainerStyled>
-      <TitleStyled>{`Привет, ${login}`}</TitleStyled>
+      <TitleStyled>{`Привет, ${name}`}</TitleStyled>
       <ButtonsContainerStyled>
         <ProfilePageButtonStyled onClick={logoutButtonClickHandler}>Выйти из аккаунта</ProfilePageButtonStyled>
         <ProfilePageButtonStyled outline onClick={contactsButtonClickHandler}>

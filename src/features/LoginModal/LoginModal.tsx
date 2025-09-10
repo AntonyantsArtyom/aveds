@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useUserModalStore } from "@/entities/User/UserModalStore";
 import { useNavigate } from "react-router-dom";
 import { useLoginModalStore } from "@/features/LoginModal/LoginModalStore";
+import users from "@/users.json";
 
 export const LoginModal = () => {
   const { isOpen, setIsOpen } = useLoginModalStore();
@@ -14,7 +15,7 @@ export const LoginModal = () => {
   const [inputPassword, setInputPassword] = useState("");
   const [error, setError] = useState<{ field: string | null; message: string }>({ field: null, message: "" });
 
-  const { setLogin } = useUserModalStore();
+  const { setName } = useUserModalStore();
   const navigate = useNavigate();
 
   const LoginClickHandler = () => {
@@ -27,11 +28,17 @@ export const LoginModal = () => {
       return;
     }
 
+    const user = users.find((user) => user.login === inputLogin && user.password === inputPassword);
+    if (!user) {
+      setError({ field: "main", message: "Логин или пароль неверны" });
+      return;
+    }
+
     setIsOpen(false);
     setInputLogin("");
     setInputPassword("");
     setError({ field: null, message: "" });
-    setLogin(inputLogin);
+    setName(user.name);
     navigate("/profile");
   };
 
@@ -50,6 +57,7 @@ export const LoginModal = () => {
         {error.field === "login" && <ErrorTextStyled>{error.message}</ErrorTextStyled>}
         <InputStyled value={inputPassword} onChange={passwordChangeHandler} placeholder="пароль" />
         {error.field === "password" && <ErrorTextStyled>{error.message}</ErrorTextStyled>}
+        {error.field === "main" && <ErrorTextStyled>{error.message}</ErrorTextStyled>}
         <FormButtonStyled largeContent onClick={LoginClickHandler}>
           Войти
         </FormButtonStyled>

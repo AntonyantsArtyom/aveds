@@ -1,14 +1,14 @@
 import { create } from "zustand";
 
 interface IUserModalStore {
-  login: null | string;
-  setLogin: (login: null | string) => void;
+  name: null | string;
+  setName: (name: null | string) => void;
 }
 
 export const useUserModalStore = create<IUserModalStore>((set) => ({
-  login: localStorage.getItem("login") || null,
-  setLogin: (login) => {
-    localStorage.setItem("login", login || "");
-    set({ login });
+  name: localStorage.getItem("name") || null,
+  setName: (name) => {
+    localStorage.setItem("name", name || "");
+    set({ name });
   },
 }));

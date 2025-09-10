@@ -10,10 +10,10 @@ export const Header = () => {
   const logoButtonClickHandler = () => navigate("/");
 
   const { setIsOpen: setIsOpenLoginModal } = useLoginModalStore();
-  const { login } = useUserModalStore();
+  const { name } = useUserModalStore();
 
   const loginButtonClickHandler = () => {
-    if (login) {
+    if (name) {
       navigate("/profile");
       return;
     }
@@ -29,7 +29,7 @@ export const Header = () => {
         <LinkStyled to="/contacts">Контакты</LinkStyled>
       </NavStyled>
       <LoginButtonStyled largeContent outline onClick={loginButtonClickHandler}>
-        {login ? "Профиль" : "Войти"}
+        {name ? "Профиль" : "Войти"}
       </LoginButtonStyled>
     </HeaderStyled>
   );
